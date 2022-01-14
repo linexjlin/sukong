@@ -76,19 +76,19 @@ func Parse(data []byte) (SK, error) {
 	fmt.Printf("%x", b)
 
 	r.Read(b2[:])
-	sk.TorqueValue = binary.LittleEndian.Uint16(b2[:])
+	sk.TorqueValue = binary.BigEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.SpinSpeed = binary.LittleEndian.Uint16(b2[:])
+	sk.SpinSpeed = binary.BigEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.LockAngle = binary.LittleEndian.Uint16(b2[:])
+	sk.LockAngle = binary.BigEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.TwistAngle = binary.LittleEndian.Uint16(b2[:])
+	sk.TwistAngle = binary.BigEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.Duration = binary.LittleEndian.Uint16(b2[:])
+	sk.Duration = binary.BigEndian.Uint16(b2[:])
 
 	b, _ = r.ReadByte()
 	switch b {
@@ -149,22 +149,22 @@ func Parse(data []byte) (SK, error) {
 	sk.Temp = int8(b)
 
 	r.Read(b2[:])
-	sk.MaxTorque = binary.BigEndian.Uint16(b2[:])
+	sk.MaxTorque = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.MinTorque = binary.BigEndian.Uint16(b2[:])
+	sk.MinTorque = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.TwistAngleMax = binary.BigEndian.Uint16(b2[:])
+	sk.TwistAngleMax = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.TwistAngleMin = binary.BigEndian.Uint16(b2[:])
+	sk.TwistAngleMin = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.LockAngleMax = binary.BigEndian.Uint16(b2[:])
+	sk.LockAngleMax = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.LockAngleMin = binary.BigEndian.Uint16(b2[:])
+	sk.LockAngleMin = binary.LittleEndian.Uint16(b2[:])
 
 	b, _ = r.ReadByte()
 	switch b {
