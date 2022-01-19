@@ -82,7 +82,7 @@ func Parse(data []byte) (SK, error) {
 	sk.SpinSpeed = binary.BigEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
-	sk.LockAngle = binary.BigEndian.Uint16(b2[:])
+	sk.LockAngle = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
 	sk.TwistAngle = binary.BigEndian.Uint16(b2[:])
