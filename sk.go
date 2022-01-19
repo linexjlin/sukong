@@ -76,7 +76,7 @@ func Parse(data []byte) (SK, error) {
 	fmt.Printf("%x", b)
 
 	r.Read(b2[:])
-	sk.TorqueValue = binary.BigEndian.Uint16(b2[:])
+	sk.TorqueValue = binary.LittleEndian.Uint16(b2[:])
 
 	r.Read(b2[:])
 	sk.SpinSpeed = binary.BigEndian.Uint16(b2[:])
